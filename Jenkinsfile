@@ -17,8 +17,8 @@ pipeline {
         stage('Git Clone') {
             steps {
                 // Checkout code from the Git repository
-                url: 'https://github.dev/BhawnaGarg-2508/cap-pred', 
-                branch: 'main' // Specify the branch you want to clone
+                git url: 'https://github.com/BhawnaGarg-2508/cap-pred.git', 
+                    branch: 'main' // Specify the branch you want to clone
             }
         }
         stage('Checkout') {
