@@ -14,6 +14,14 @@ pipeline {
     }
 
     stages {
+        stage('Git Clone') {
+            steps {
+                // Checkout code from the Git repository
+                git credentialsId: 'your-git-credentials-id', 
+                    url: 'https://github.com/your-username/your-repo.git', 
+                    branch: 'main' // Specify the branch you want to clone
+            }
+        }
         stage('Checkout') {
             steps {
                 sh "echo 'Checkout SCM'"
