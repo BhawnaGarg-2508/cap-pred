@@ -14,17 +14,13 @@ pipeline {
     }
 
     stages {
-        stage('Git Clone') {
+        stage('Clone Repository') {
             steps {
-                // Checkout code from the Git repository
-                git url: 'https://github.com/BhawnaGarg-2508/cap-pred.git', 
-                    branch: 'main' // Specify the branch you want to clone
-            }
-        }
-        stage('Checkout') {
-            steps {
-                sh "echo 'Checkout SCM'"
-                checkout scm
+                script {
+                    GIT_COMMIT = sh(script: "git rev-parse HEAD", returnStdout: true).trim()
+                    git url: 'https://github.com/BhawnaGarg-2508/cap-pred.git', branch: 'main'
+
+                }
             }
         }
 
