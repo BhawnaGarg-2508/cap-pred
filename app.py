@@ -7,9 +7,26 @@ from datetime import datetime
 
 
 app=Flask(__name__)
+latitude = 42
 
 #loading the model
 model=pickle.load(open('Housing_Model','rb'))
+
+def predict_dummy(input_data):
+    """
+    Dummy function to mock the behavior of the machine learning model.
+    It simply returns a fixed dummy result.
+    """
+    # Replace this with the behavior you want to mock
+    return latitude
+
+def calculate_result_display(result):
+    """
+    Dummy function to mock the behavior of processing the result for display.
+    It simply converts the result to a string with 3 decimal places.
+    """
+    # Replace this with the behavior you want to mock
+    return "{:.3f}".format(result)
 
 
 @app.route('/')
@@ -144,9 +161,3 @@ def predict():
 
 if __name__=="__main__":
     app.run(debug=True)
-
-
-
-
-
-
